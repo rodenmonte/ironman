@@ -85,12 +85,14 @@
                 player1.add(selection); //adds roll to the set
             }
                        console.log(player1);
+			if(document.getElementById("players").value >= 2) {
             while (player2.size < characterSlots) {
                 selection = Random();
                 player2.add(selection);
             }
+			}
                         console.log(player2);
-            if(document.getElementById("players").value == 4 || document.getElementById("players").value == 3){
+            if(document.getElementById("players").value >= 3){
             while (player3.size < characterSlots) {
                 selection = Random();
                 player3.add(selection);
@@ -132,11 +134,7 @@
                 divs += '<div class="flex-item" ><img src="' + path + '"></div>';
                 console.log(divs)
             });
-
             document.getElementById("player4").innerHTML = divs;
-
         }
     </script>
 </body>
-
-
