@@ -6,7 +6,7 @@
 <body>
     <button id="roll" onclick="roll()">Roll Characters</button>
     <div id="shiekbox">
-    <input id="checkbox"  type="checkbox" >
+    <input id="checkbox"  type="checkbox" checked >
     <label >Split Shiek and Zelda </label>
    </div>
     <div class = "flex-container" id ="player1">
@@ -19,7 +19,6 @@
     </div>
     <div id="playersdrop">
     <select id="players">
-        <option value ='1'> 1</option>
         <option selected value ='2'> 2</option>
         <option value ='3'> 3</option>
         <option  value ='4'> 4</option>
@@ -57,13 +56,17 @@
         Character Count
     </div>
     <script>
-        var checkbox = document.getElementById("checkbox");
+        var checkbox = document.getElementById("checkbox"); 
 
-        checkbox.addEventListener('change', function () {
-            if (this.checked) {
-                document.getElementById("shiek").style.display = "none";
+        checkbox.addEventListener('change', function () { //when the checkbox is used
+            if(document.getElementById("chars").value == 26){ //if 26 is selected
+               document.getElementById("chars").selectedIndex = 24; //change it to 25
+            }
+            if (this.checked) { 
+                document.getElementById("shiek").style.display = "block"; //shows shiek
             } else {
-                document.getElementById("shiek").style.display = "block";
+                document.getElementById("shiek").style.display = "none"; //hides shiek
+
             }
         });
         function Random() {
@@ -84,21 +87,21 @@
                 selection = Random(); //rolls for 1-26
                 player1.add(selection); //adds roll to the set
             }
-                       console.log(player1);
+            console.log(player1);
 			if(document.getElementById("players").value >= 2) {
-            while (player2.size < characterSlots) {
+            while (player2.size < characterSlots) { 
                 selection = Random();
-                player2.add(selection);
+                player2.add(selection); 
             }
 			}
-                        console.log(player2);
+            console.log(player2);
             if(document.getElementById("players").value >= 3){
             while (player3.size < characterSlots) {
                 selection = Random();
                 player3.add(selection);
             }
             }
-            if(document.getElementById("players").value == 4 ){
+            if(document.getElementById("players").value == 4 ){ 
             while (player4.size < characterSlots) {
                 selection = Random();
                 player4.add(selection);
